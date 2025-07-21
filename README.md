@@ -1,36 +1,42 @@
 # 🫀 ECG Label Granularity & Deep Learning  
-**Exploring the impact of diagnostic label resolution on ECG classification performance using deep neural networks.**
+**Assessing the Influence of Diagnostic Label Resolution on Deep Neural Network Performance in ECG Classification**
 
 ---
 
-## 📌 Summary
+## 📌 Overview
 
-This project investigates how different levels of label granularity—ranging from **fine-grained diagnostic codes** to **coarse severity-based tiers**—affect the performance, generalizability, and interpretability of ECG classifiers.
+This study explores how varying levels of diagnostic label granularity—from detailed disease-specific codes to broader severity-based categories—impact the performance, generalizability, and interpretability of deep learning models for electrocardiogram (ECG) classification.
 
-A 1D ResNet model was trained on the SPH dataset (25,770 ECGs) using three labeling strategies and validated on an external PTB-XL cohort:
-- **44-class** AHA diagnostic codes  
-- **3-tier** severity system: `Normal`, `Monitor`, `Serious`  
-- **4-tier** severity system: `Normal`, `Mild`, `Moderate`, `Serious`
+We employed a 1D ResNet architecture trained on the SPH dataset (25,770 ECG recordings) and evaluated its generalization on the external PTB-XL dataset using three distinct labeling strategies:
+
+- **Fine-grained (44-class):** American Heart Association (AHA) diagnostic codes  
+- **Coarse-grained (3-tier):** `Normal`, `Monitor`, `Serious`  
+- **Intermediate (4-tier):** `Normal`, `Mild`, `Moderate`, `Serious`
 
 ---
 
 ## 💡 Key Findings
 
-- 🥇 **3-tier model** showed the best robustness:
-  - 87% internal accuracy (F1 = 0.87)
+- 🥇 **3-tier labeling** yielded the most robust performance:  
+  - 87% internal accuracy (F1 = 0.87)  
   - 60.5% external accuracy (PTB-XL)
-- 🧠 **4-tier model** preserved diagnostic nuance with only a 2% accuracy drop.
-- 🚨 **44-class model** failed to generalize to rare pathologies (F1 = 0 externally).
-- 🔍 Grad-CAM visualizations showed:
-  - Tiered models focused on clinically relevant waveform regions.
-  - Fine-grained models overfit to noise and artifacts.
+  
+- 🧠 **4-tier classification** maintained interpretability and clinical relevance, with only a 2% drop in internal accuracy compared to the 3-tier model.
+
+- 🚨 **44-class labeling** exhibited severe generalization issues, particularly with rare pathologies (external F1 = 0), likely due to overfitting and class imbalance.
+
+- 🔍 **Grad-CAM analysis** revealed that:  
+  - Tiered models consistently attended to diagnostically relevant waveform segments.  
+  - Fine-grained models often focused on noisy or irrelevant signal components.
 
 ---
 
-## 🏥 Clinical Relevance
+## 🏥 Implications for Clinical Practice
 
-This work supports a **two-stage ECG analysis pipeline**:
-1. **Severity-based triage** in primary care with coarse labels.
-2. **Fine-grained diagnosis** in specialist settings if needed.
+The results support the implementation of a **hierarchical two-stage diagnostic framework**:
 
-The framework improves robustness, reduces overfitting, and enhances interpretability—making it suitable for **AI-powered Holter devices** and real-world primary care deployment.
+1. **Initial triage** in primary care settings using coarse severity labels to prioritize urgency.
+2. **Detailed diagnosis** using fine-grained labels when additional precision is clinically warranted.
+
+This approach enhances model robustness, mitigates overfitting, and improves interpretability—making it well-suited for deployment in **AI-assisted Holter monitors for primary care workflows**.
+

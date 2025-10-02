@@ -1,5 +1,12 @@
-# 🫀 ECG Label Granularity & Deep Learning  
 **Assessing the Influence of Diagnostic Label Resolution on Deep Neural Network Performance in ECG Classification**
 
-This project explores how different levels of diagnostic label granularity impact deep learning performance in ECG classification. While most research and commercial Holter devices focus on disease-specific identification, we collaborated with a cardiologist to map conditions into clinically meaningful severity tiers. Three identical 1D ResNet models were trained on the SPH dataset and evaluated on PTB-XL, comparing fine-grained (44-class) labels with severity-based 3-tier and 4-tier groupings. Results show that severity-based labeling improves robustness, interpretability, and external generalization, making it better suited for GP workflows where identifying the presence and urgency of a heart condition is more important than naming the exact disease. The repository includes the ECG_classification.ipynb notebook (with preprocessing, training, and evaluation steps for full reproducibility), the trained models, and the accompanying thesis detailing the research.
+This project investigates how the resolution of diagnostic labels—ranging from detailed 44-class disease codes to clinically meaningful severity tiers—affects the performance of deep learning models for ECG classification. In collaboration with a cardiologist, we mapped conditions into both 3-tier and 4-tier severity groupings and trained identical 1D ResNet models on the SPH dataset, with external evaluation on PTB-XL.
+
+Findings show that severity-based labels improve robustness, interpretability, and generalization across datasets, making them particularly valuable for general practitioners, where the priority is assessing urgency rather than naming every condition.
+
+The repository provides:
+ECG_classification.ipynb — preprocessing, training, and evaluation pipeline (fully reproducible)
+Pretrained models — fine-grained and severity-tiered
+Bachelor’s thesis — complete paper of the study and its implications
+
 

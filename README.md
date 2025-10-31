@@ -5,7 +5,7 @@ This project investigates how the resolution of diagnostic labels—ranging from
 Findings show that severity-based labels improve robustness, interpretability, and generalization across datasets, making them particularly valuable for general practitioners, where the priority is assessing urgency rather than naming every condition.
 
 The repository provides:
-ECG_classification.ipynb — preprocessing, training, and evaluation pipeline (fully reproducible)
+ECG_classification.ipynb — preprocessing, training, and evaluation pipeline 
 Pretrained models — fine-grained and severity-tiered
 Bachelor’s thesis — complete paper of the study and its implications
 
